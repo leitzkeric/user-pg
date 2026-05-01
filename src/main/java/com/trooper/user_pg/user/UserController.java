@@ -54,9 +54,10 @@ public class UserController {
         return isPwdOk;
     }
 
-    @GetMapping("/login")
+    @GetMapping("/login_user")
     public boolean logIn (@RequestBody LoginDTO loginDTO) {
         var user = repository.getReferenceByLogin(loginDTO.login());
         return new PasswordHashingBCrypt().checkEncodedPassword(loginDTO.password(), user.getPassword());
     }
+
 }

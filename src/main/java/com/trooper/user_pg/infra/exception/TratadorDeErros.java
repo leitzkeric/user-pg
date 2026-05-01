@@ -1,4 +1,4 @@
-package com.trooper.user_pg.exception;
+package com.trooper.user_pg.infra.exception;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
