@@ -23,6 +23,7 @@ public class TokenService {
             return JWT.create()
                     .withIssuer("API user_pg")
                     .withSubject(user.getLogin())
+                    .withClaim("id", user.getId())
                     .withExpiresAt(dataExpiracao())
                     .sign(algorithm);
 
@@ -45,7 +46,7 @@ public class TokenService {
                     .verify(tokenJwt)
                     .getSubject();
         } catch (JWTVerificationException exception){
-            throw new RuntimeException("Token JWT inválido ou expirado.");
+            throw new RuntimeException("Token JWT inválido ou expirado!");
         }
     }
 }
